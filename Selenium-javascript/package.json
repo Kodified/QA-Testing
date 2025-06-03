@@ -1,0 +1,13 @@
+{
+  "name": "selenium-javascript-sample",
+  "version": "1.0.0",
+  "description": "Sample Selenium project for candidate evaluation",
+  "type": "commonjs",
+  "scripts": {
+    "test": "mocha tests/*.test.js"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "selenium-webdriver": "^4.16.0"
+  }
+}
