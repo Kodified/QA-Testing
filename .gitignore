@@ -1,0 +1,27 @@
+# Node dependencies
+node_modules/
+Playwright/node_modules/
+Selenium-javascript/node_modules/
+
+# Python virtual environments
+venv/
+env/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Java build output
+Selenium-java/target/
+
+# Logs
+*.log
+
+# IDE / editor folders
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+
+# Playwright test results
+Playwright/test-results/
