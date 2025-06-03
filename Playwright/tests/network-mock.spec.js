@@ -4,7 +4,7 @@ const path = require('path');
 // TODO: Intercept and mock the API response according to CandidateEvaluation.md
 
 test('mock API response', async ({ page }) => {
-  const filePath = path.join(__dirname, '../public/api.html');
+  const filePath = path.join(__dirname, '../../public/api.html');
   await page.goto('file://' + filePath);
 
   // Use page.route to intercept the request and return a mocked response
