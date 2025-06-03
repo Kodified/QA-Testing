@@ -20,13 +20,13 @@ describe('end-to-end login', function() {
     const filePath = path.resolve(__dirname, '../../public/login.html');
     await driver.get('file://' + filePath);
 
-    // TODO: Fill in the username and password fields
-    // await driver.findElement(By.id('username')).sendKeys('your-username');
-    // await driver.findElement(By.id('password')).sendKeys('your-password');
-    // await driver.findElement(By.id('submit')).click();
+    // Fill in the username and password fields
+    await driver.findElement(By.id('username')).sendKeys('emilys');
+    await driver.findElement(By.id('password')).sendKeys('emilyspass');
+    await driver.findElement(By.id('submit')).click();
 
-    // TODO: Verify welcome message
-    // const text = await driver.findElement(By.id('welcome-text')).getText();
-    // assert.strictEqual(text, 'Welcome back, your-username!');
+    // Verify welcome message
+    const text = await driver.findElement(By.id('welcome-text')).getText();
+    assert.strictEqual(text, 'Welcome back, Emily!');
   });
 });

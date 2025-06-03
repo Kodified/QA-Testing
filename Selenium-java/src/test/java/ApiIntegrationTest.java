@@ -24,8 +24,8 @@ public class ApiIntegrationTest {
         driver.get(fileUrl);
 
         // Trigger the real API request
-        // driver.findElement(By.id("load-user")).click();
-        // WebElement output = driver.findElement(By.id("output"));
-        // Assertions.assertFalse(output.getText().isBlank());
+        driver.findElement(By.id("load-user")).click();
+        WebElement output = driver.findElement(By.id("output"));
+        Assertions.assertFalse(output.getText().isBlank());
     }
 }

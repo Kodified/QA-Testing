@@ -2,7 +2,8 @@ const {Builder, By} = require('selenium-webdriver');
 const path = require('path');
 const assert = require('assert');
 
-// TODO: Use the real API endpoint and verify UI updates
+// Use the real API endpoint and verify that the page displays
+// the returned user data.
 
 describe('integration test with real API', function() {
   this.timeout(30000);
@@ -23,8 +24,8 @@ describe('integration test with real API', function() {
     await driver.get('file://' + filePath);
 
     // Trigger the API request
-    // await driver.findElement(By.id('load-user')).click();
-    // const output = await driver.findElement(By.id('output')).getText();
-    // assert.notStrictEqual(output.trim(), '');
+    await driver.findElement(By.id('load-user')).click();
+    const output = await driver.findElement(By.id('output')).getText();
+    assert.notStrictEqual(output.trim(), '');
   });
 });
