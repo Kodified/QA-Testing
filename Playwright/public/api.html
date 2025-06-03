@@ -2,18 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>API Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <button id="load-user">Load User</button>
-  <pre id="output"></pre>
+<body class="bg-gradient-to-br from-green-50 to-teal-100 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-xl w-full max-w-2xl p-8">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Random User Generator</h1>
+      <p class="text-gray-600">Click the button below to fetch a random user from the API</p>
+    </div>
+    
+    <div class="text-center mb-8">
+      <button 
+        id="load-user"
+        class="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+      >
+        <span class="flex items-center justify-center">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+          </svg>
+          Load Random User
+        </span>
+      </button>
+    </div>
+    
+    <div class="bg-gray-50 rounded-lg p-6 min-h-32">
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">User Information:</h3>
+      <pre 
+        id="output" 
+        class="text-gray-600 whitespace-pre-wrap break-words font-mono text-sm leading-relaxed"
+      >
+        Click "Load Random User" to display user data here...
+      </pre>
+    </div>
+    
+    <div id="loading" class="hidden text-center py-8">
+      <div class="inline-flex items-center">
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span class="text-green-600 font-medium">Loading user data...</span>
+      </div>
+    </div>
+  </div>
+  
   <script>
     document.getElementById('load-user').addEventListener('click', async () => {
-      const response = await fetch('https://randomuser.me/api/');
-      const data = await response.json();
-      const user = data.results[0];
-      document.getElementById('output').textContent =
-        `${user.name.first} ${user.name.last} - ${user.email}`;
+      const button = document.getElementById('load-user');
+      const output = document.getElementById('output');
+      const loading = document.getElementById('loading');
+      
+      // Show loading state
+      button.disabled = true;
+      button.classList.add('opacity-50', 'cursor-not-allowed');
+      loading.classList.remove('hidden');
+      output.textContent = '';
+      
+      try {
+        const response = await fetch('https://randomuser.me/api/');
+        const data = await response.json();
+        const user = data.results[0];
+        
+        // Format the user data nicely
+        const formattedData = `🧑 Name: ${user.name.first} ${user.name.last}
+📧 Email: ${user.email}
+📱 Phone: ${user.phone}
+🏠 Address: ${user.location.street.number} ${user.location.street.name}
+           ${user.location.city}, ${user.location.state}
+           ${user.location.country}
+🎂 Age: ${user.dob.age} years old
+👤 Gender: ${user.gender}`;
+        
+        output.textContent = formattedData;
+      } catch (error) {
+        output.textContent = `❌ Error loading user data: ${error.message}`;
+        output.classList.add('text-red-600');
+      } finally {
+        // Hide loading state
+        loading.classList.add('hidden');
+        button.disabled = false;
+        button.classList.remove('opacity-50', 'cursor-not-allowed');
+      }
     });
   </script>
 </body>

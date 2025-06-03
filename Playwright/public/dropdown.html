@@ -2,20 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dropdown Page</title>
-  <style>
-    #menu { display: none; position: absolute; background: #eee; padding: 10px; }
-    #trigger:hover + #menu { display: block; }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div id="trigger" style="width: 100px; height: 30px; background: #ccc;">Hover me</div>
-  <div id="menu">
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
+<body class="bg-gradient-to-br from-purple-50 to-pink-100 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Interactive Menu</h1>
+      <p class="text-gray-600">Hover over the button to see the dropdown</p>
+    </div>
+    
+    <div class="relative inline-block">
+      <div 
+        id="trigger" 
+        class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-6 rounded-lg cursor-pointer transition duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+      >
+        Hover me
+      </div>
+      <div 
+        id="menu" 
+        class="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 min-w-48 opacity-0 invisible hover:opacity-100 hover:visible transition-all duration-300 ease-in-out z-10"
+      >
+        <ul class="py-2">
+          <li class="px-4 py-3 hover:bg-gray-50 cursor-pointer transition duration-200 ease-in-out border-b border-gray-100 last:border-b-0">
+            <span class="text-gray-700 font-medium">📊 Dashboard</span>
+          </li>
+          <li class="px-4 py-3 hover:bg-gray-50 cursor-pointer transition duration-200 ease-in-out border-b border-gray-100 last:border-b-0">
+            <span class="text-gray-700 font-medium">⚙️ Settings</span>
+          </li>
+          <li class="px-4 py-3 hover:bg-gray-50 cursor-pointer transition duration-200 ease-in-out border-b border-gray-100 last:border-b-0">
+            <span class="text-gray-700 font-medium">👤 Profile</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
+  
+  <style>
+    #trigger:hover + #menu {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
 </body>
 </html>
