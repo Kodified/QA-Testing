@@ -8,7 +8,8 @@ public class LoginTest {
 
     @BeforeEach
     public void setUp() {
-        // TODO: configure WebDriver location or use WebDriverManager
+        // Instantiate the ChromeDriver. In a real project you might
+        // configure WebDriverManager instead of hard coding the binary.
         driver = new ChromeDriver();
     }
 
@@ -24,13 +25,13 @@ public class LoginTest {
         String fileUrl = Paths.get("../public/login.html").toUri().toString();
         driver.get(fileUrl);
 
-        // TODO: Fill in username and password fields
-        // driver.findElement(By.id("username")).sendKeys("your-username");
-        // driver.findElement(By.id("password")).sendKeys("your-password");
-        // driver.findElement(By.id("submit")).click();
+        // Fill in username and password fields
+        driver.findElement(By.id("username")).sendKeys("emilys");
+        driver.findElement(By.id("password")).sendKeys("emilyspass");
+        driver.findElement(By.id("submit")).click();
 
-        // TODO: Assert welcome message is displayed
-        // WebElement message = driver.findElement(By.id("welcome-text"));
-        // Assertions.assertEquals("Welcome back, your-username!", message.getText());
+        // Assert welcome message is displayed
+        WebElement message = driver.findElement(By.id("welcome-text"));
+        Assertions.assertEquals("Welcome back, Emily!", message.getText());
     }
 }

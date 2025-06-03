@@ -2,7 +2,8 @@ const {Builder, By} = require('selenium-webdriver');
 const path = require('path');
 const assert = require('assert');
 
-// TODO: Intercept and mock the API response according to CandidateEvaluation.md
+// Intercept the network request on the page and return mocked data so the
+// UI shows predictable output.
 
 describe('mock API response', function() {
   this.timeout(30000);
@@ -22,9 +23,23 @@ describe('mock API response', function() {
     const filePath = path.resolve(__dirname, '../../public/api.html');
     await driver.get('file://' + filePath);
 
-    // Use browser devtools protocol or proxy to mock the request
-    // await driver.findElement(By.id('load-user')).click();
-    // const output = await driver.findElement(By.id('output')).getText();
-    // assert(output.includes('Jane Doe'));
+    // Mock the fetch call on the page by overriding window.fetch
+    await driver.executeScript(() => {
+      window.fetch = () => Promise.resolve({
+        json: () => Promise.resolve({
+          firstName: 'Jane',
+          lastName: 'Doe',
+          email: 'jane.doe@example.com',
+          phone: '123',
+          address: { address: '123 Main St', city: 'Metropolis', state: 'NY', country: 'USA' },
+          age: 30,
+          gender: 'female'
+        })
+      });
+    });
+
+    await driver.findElement(By.id('load-user')).click();
+    const output = await driver.findElement(By.id('output')).getText();
+    assert(output.includes('Jane Doe'));
   });
 });

@@ -25,9 +25,9 @@ describe('dropdown appears on hover', function() {
     assert.strictEqual(displayed, false);
 
     // Hover over trigger element
-    // const trigger = await driver.findElement(By.id('trigger'));
-    // await driver.actions({bridge: true}).move({origin: trigger}).perform();
-    // displayed = await menu.isDisplayed();
-    // assert.strictEqual(displayed, true);
+    const trigger = await driver.findElement(By.id('trigger'));
+    await driver.actions({bridge: true}).move({origin: trigger}).perform();
+    displayed = await menu.isDisplayed();
+    assert.strictEqual(displayed, true);
   });
 });

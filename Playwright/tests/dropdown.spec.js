@@ -1,7 +1,8 @@
 const { test, expect } = require('@playwright/test');
 const path = require('path');
 
-// TODO: Validate dropdown visibility on hover according to CandidateEvaluation.md
+// Validate that the dropdown menu is hidden by default and becomes
+// visible when hovering over the trigger element.
 
 test('dropdown appears on hover', async ({ page }) => {
   const filePath = path.join(__dirname, '../../public/dropdown.html');
@@ -11,6 +12,6 @@ test('dropdown appears on hover', async ({ page }) => {
   await expect(menu).toBeHidden();
 
   // Hover over the trigger element
-  // await page.hover('#trigger');
-  // await expect(menu).toBeVisible();
+  await page.hover('#trigger');
+  await expect(menu).toBeVisible();
 });

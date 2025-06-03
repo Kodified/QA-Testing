@@ -28,7 +28,7 @@ public class DropdownTest {
         Assertions.assertFalse(menu.isDisplayed());
 
         // Hover over the trigger element
-        // new Actions(driver).moveToElement(driver.findElement(By.id("trigger"))).perform();
-        // Assertions.assertTrue(menu.isDisplayed());
+        new Actions(driver).moveToElement(driver.findElement(By.id("trigger"))).perform();
+        Assertions.assertTrue(menu.isDisplayed());
     }
 }
