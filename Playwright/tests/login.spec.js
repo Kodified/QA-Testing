@@ -4,7 +4,7 @@ const path = require('path');
 // TODO: Complete the login test according to CandidateEvaluation.md
 
 test('end-to-end login', async ({ page }) => {
-  const filePath = path.join(__dirname, '../public/login.html');
+  const filePath = path.join(__dirname, '../../public/login.html');
   await page.goto('file://' + filePath);
 
   // Fill in the username and password fields

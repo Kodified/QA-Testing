@@ -4,7 +4,7 @@ const path = require('path');
 // TODO: Validate dropdown visibility on hover according to CandidateEvaluation.md
 
 test('dropdown appears on hover', async ({ page }) => {
-  const filePath = path.join(__dirname, '../public/dropdown.html');
+  const filePath = path.join(__dirname, '../../public/dropdown.html');
   await page.goto('file://' + filePath);
 
   const menu = page.locator('#menu');
