@@ -1,27 +1,32 @@
 # QA-Testing Repository Overview
 
-This repository serves as a comprehensive resource for QA testing examples and candidate evaluation materials. It includes practical demonstrations of test automation using various frameworks and languages, alongside guidelines for assessing QA candidates.
+This repository serves as a practical demonstrations of test automation using various frameworks and languages for assessing QA candidates.
 
 ## Test Automation Examples
 
-The repository is structured to provide clear examples for different testing tools:
+The repository is structured to provide examples for different testing tools:
 
-- **Playwright:** Located in the `Playwright` folder, this section contains a sample Playwright project. You'll find instructions within this folder to install dependencies and execute the example tests. The `public` directory, situated in the repository root, hosts example web pages used by these tests.
+- **Playwright:** Contains a complete Playwright test automation setup with sample tests and configuration files.
 
 - **Selenium:** Examples using Selenium are provided for multiple programming languages:
-  - `Selenium-java`: Contains Selenium examples implemented in Java.
-  - `Selenium-python`: Contains Selenium examples implemented in Python.
-  - `Selenium-javascript`: Contains Selenium examples implemented in JavaScript.
-    Each of these folders includes specific setup instructions and placeholder tests designed to mirror common evaluation questions.
+  - `Selenium-java`: Selenium test examples implemented in Java
+  - `Selenium-python`: Selenium test examples implemented in Python
+  - `Selenium-javascript`: Selenium test examples implemented in JavaScript
 
-## Candidate Evaluation
+Each framework folder includes specific setup instructions and placeholder tests designed to mirror common evaluation questions.
 
-The `CandidateEvaluation.md` file (previously in the repository root) outlines the criteria and questions for evaluating QA candidates. Its content is now integrated here for easier access.
+## Sample Pages
 
-<!-- Please paste the content of CandidateEvaluation.md below this line -->
+The `public/` directory contains three sample HTML pages designed for testing different scenarios:
 
----
+- **login.html**: A simple login form with username/password fields for testing form interactions and authentication flows
+- **dropdown.html**: Demonstrates hover-based dropdown menus for testing dynamic UI elements
+- **api.html**: Fetches and displays user data from `https://dummyjson.com/users/1` for testing API integration and data rendering
 
-## [Content from CandidateEvaluation.md will go here]
+## Candidate Task
+
+The `CandidateTasks.md` file outlines the criteria and questions for evaluating QA candidates.
+
+## How To Setup
 
 Follow the specific instructions within each framework's folder (`Playwright`, `Selenium-java`, etc.) to set up and run the respective examples.

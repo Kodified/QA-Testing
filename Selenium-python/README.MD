@@ -6,11 +6,18 @@ This folder provides a Python setup using pytest and Selenium.
 
 1. Create a virtual environment and activate it.
 2. Install dependencies:
-   ```bash
+
+   **For zsh or bash:**
+
+   ```zsh or bash
    pip install -r requirements.txt
    ```
+
 3. Run the tests:
-   ```bash
+
+   **For zsh or bash:**
+
+   ```zsh or bash
    pytest
    ```
 

@@ -6,11 +6,18 @@ This directory shows how to use Selenium with Node.js.
 
 1. Install Node.js v18+.
 2. Install dependencies:
-   ```bash
+
+   **For zsh or bash:**
+
+   ```zsh or bash
    npm install
    ```
+
 3. Run the tests:
-   ```bash
+
+   **For zsh or bash:**
+
+   ```zsh or bash
    npm test
    ```
 

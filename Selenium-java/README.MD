@@ -6,7 +6,10 @@ This folder contains a minimal Selenium setup with JUnit tests that use the page
 
 1. Install Java 17+ and Maven.
 2. In this `Selenium-java` directory, run:
-   ```bash
+
+   **For zsh (default on macOS Catalina+) or base:**
+
+   ```zsh or bash
    mvn test
    ```
 
